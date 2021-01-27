@@ -1,0 +1,128 @@
+@import "src/fonts/fonts.module";
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "title title"
+                       "firstName lastName"
+                       "email checkbox"
+                       "personalPhone ppnumber"
+                       "companyName companyName"
+                       "companyAddress companyAddress"
+                       "companyPhone cpnumber"
+                       "jobTitle jobTitle"
+                       "password confirmPassword"
+                       "accept free1"
+                       "free2 submit";
+  font-family: "Lato-Bold", sans-serif;
+  max-width: 670px;
+  margin: auto;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 0 15px;
+    margin: 10px 0;
+    div {
+      margin-bottom: 10px;
+    }
+  }
+
+  .personalPhone, .companyPhone {
+    padding-right: 0;
+    input {
+      border-radius: 5px 0 0 5px;
+    }
+    & + input {
+      position: relative;
+      top: 33px;
+      border-radius: 0 5px 5px 0;
+      border-left: none;
+      margin-right: 15px;
+    }
+  }
+
+  .checkbox, .accept {
+    flex-direction: row;
+  }
+
+  input {
+    height: 40px;
+    outline: none;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    padding: 0 15px;
+  }
+
+}
+
+.title {
+  font-size: 24px;
+  grid-area: title;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.firstName {
+  grid-area: firstName;
+}
+
+.lastName {
+  grid-area: lastName;
+}
+
+.email {
+  grid-area: email;
+}
+
+.checkbox {
+  grid-area: checkbox;
+}
+
+.personalPhone {
+  grid-area: personalPhone;
+}
+
+.ppnumber {
+  grid-area: ppnumber;
+}
+
+.companyName {
+  grid-area: companyName;
+}
+
+.companyAddress {
+  grid-area: companyAddress;
+}
+
+.companyPhone {
+  grid-area: companyPhone;
+}
+
+.cpnumber {
+  grid-area: cpnumber;
+}
+
+.jobTitle {
+  grid-area: jobTitle;
+}
+
+.password {
+  grid-area: password;
+}
+
+.confirmPassword {
+  grid-area: confirmPassword;
+}
+
+.accept {
+  grid-area: accept;
+}
+
+.submit {
+  grid-area: submit;
+}

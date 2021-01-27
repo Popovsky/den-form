@@ -1,9 +1,9 @@
-function App() {
-  return (
-    <div>
+import SignUpForm from './components/SignUpForm';
 
-    </div>
+const App = () => {
+  return (
+    <SignUpForm/>
   );
-}
+};
 
 export default App;
