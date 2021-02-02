@@ -1,13 +1,96 @@
+@import "src/config/styles";
+
+.label {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 $container-with / 2 - 15px * 2;
+  margin: 0 15px 25px;
+
+  &:nth-child(8), &:nth-child(9), &:nth-child(12) {
+    flex: 1 1 100%;
+  }
+
+  &:nth-child(6), &:nth-child(10) {
+    @media screen and (min-width: $container-with) {
+      flex: 0 1 $container-with / 2 - 15px * 2;
+      max-width: $container-with / 2 - 15px * 2;
+      .formItem {
+        margin-right: -15px;
+        border-radius: 5px 0 0 5px;
+      }
+    }
+  }
+
+  &:nth-child(7), &:nth-child(11) {
+    justify-content: flex-end;
+
+    @media screen and (min-width: $container-with) {
+      .formItem {
+        margin-left: -15px;
+        border-left: none;
+        border-radius: 0 5px 5px 0;
+      }
+    }
+  }
+
+  &:nth-child(5), &:nth-child(15) {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    span {
+      margin: 0 25px 15px;
+    }
+  }
+
+  &:nth-child(5) {
+    align-items: flex-end;
+  }
+
+  &:nth-child(15) {
+    align-items: flex-start;
+    flex: 1 1 $container-with - 15px * 2;
+    border-bottom: 1px solid #d8d8d8;
+
+    span {
+      margin-bottom: 40px;
+    }
+
+    .formItem {
+      position: relative;
+      top: -14px;
+    }
+  }
+
+  span {
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .formItem {
+    font-family: "Lato-Regular", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    box-sizing: content-box;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0 15px;
+    background-color: transparent;
+    outline: none;
+  }
+}
+
 .checkbox {
   position: relative;
   cursor: pointer;
 
   &:nth-child(5) {
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: $container-with) {
       &:before {
         top: 33px;
       }
-      & input:checked + div:after {
+      & .formItem:checked + div:after {
         top: 34px;
       }
     }
@@ -26,7 +109,7 @@
     border-radius: 5px;
   }
 
-  input {
+  .formItem {
     display: none;
     &:checked + div:after {
       content: "";
