@@ -1,31 +1,32 @@
 @import "src/config/styles";
 
-.label {
+.box {
   display: flex;
   flex-direction: column;
+  position: relative;
   flex: 1 1 $container-with / 2 - 15px * 2;
   margin: 0 15px 25px;
 
-  &:nth-child(8), &:nth-child(9), &:nth-child(12) {
+  &:nth-child(7), &:nth-child(8), &:nth-child(11) {
     flex: 1 1 100%;
   }
 
-  &:nth-child(6), &:nth-child(10) {
+  &:nth-child(5), &:nth-child(9) {
     @media screen and (min-width: $container-with) {
       flex: 0 1 $container-with / 2 - 15px * 2;
       max-width: $container-with / 2 - 15px * 2;
-      .formItem {
+      .field {
         margin-right: -15px;
         border-radius: 5px 0 0 5px;
       }
     }
   }
 
-  &:nth-child(7), &:nth-child(11) {
+  &:nth-child(6), &:nth-child(10) {
     justify-content: flex-end;
 
     @media screen and (min-width: $container-with) {
-      .formItem {
+      .field {
         margin-left: -15px;
         border-left: none;
         border-radius: 0 5px 5px 0;
@@ -33,41 +34,42 @@
     }
   }
 
-  &:nth-child(5), &:nth-child(15) {
+  &:nth-child(4), &:nth-child(14) {
     flex-direction: row-reverse;
     justify-content: flex-end;
 
-    span {
+    .title {
       margin: 0 25px 15px;
     }
   }
 
-  &:nth-child(5) {
+  &:nth-child(4) {
     align-items: flex-end;
   }
 
-  &:nth-child(15) {
+  &:nth-child(14) {
     align-items: flex-start;
     flex: 1 1 $container-with - 15px * 2;
     border-bottom: 1px solid #d8d8d8;
 
-    span {
+    .title {
       margin-bottom: 40px;
     }
 
-    .formItem {
+    .field {
       position: relative;
       top: -14px;
     }
   }
 
-  span {
+  .title {
     font-size: 11px;
     text-transform: uppercase;
     margin-bottom: 10px;
+    cursor: pointer;
   }
 
-  .formItem {
+  .field {
     font-family: "Lato-Regular", sans-serif;
     font-size: 16px;
     letter-spacing: 0.2px;
@@ -79,24 +81,32 @@
     background-color: transparent;
     outline: none;
   }
+
+  .error {
+    position: absolute;
+    bottom: -15px;
+    font-family: "Lato-Regular", sans-serif;
+    font-size: 11px;
+    color: #fc0202;
+    letter-spacing: 0.3px;
+  }
 }
 
 .checkbox {
   position: relative;
-  cursor: pointer;
 
-  &:nth-child(5) {
+  &:nth-child(4) {
     @media screen and (min-width: $container-with) {
-      &:before {
+      .title:before {
         top: 33px;
       }
-      & .formItem:checked + div:after {
+      & .field:checked + div:after {
         top: 34px;
       }
     }
   }
 
-  &:before {
+  .title:before {
     content: "";
     $size: 16px;
     display: block;
@@ -107,11 +117,17 @@
     height: $size;
     border: 1px solid #979797;
     border-radius: 5px;
+    background-color: transparent;
   }
 
-  .formItem {
+  .field {
+    display: none;
+  }
+
+  .field {
     display: none;
     &:checked + div:after {
+      z-index: -1;
       content: "";
       display: block;
       position: absolute;

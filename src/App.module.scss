@@ -1,0 +1,19 @@
+@import 'config/styles';
+@import "fonts/fonts.module";
+
+.signUpPage {
+  max-width: 600px;
+  margin: auto;
+  padding: 50px 0;
+}
+
+.title {
+  font-family: "Lato-Bold", sans-serif;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 45px;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}

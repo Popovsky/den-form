@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './config/reset.css';
+import styles from './App.module.scss';
 import SignUpForm from './components/SignUpForm';
 import phoneMasks from './api/phoneMasks.json';
 
@@ -33,7 +34,10 @@ const App = () => {
     return <div>Loading...</div>;
   } else if (countryPhoneData.length) {
     return (
-      <SignUpForm countryPhoneData={countryPhoneData}/>
+      <div  className={styles.signUpPage}>
+        <h1 className={styles.title}>sign up</h1>
+        <SignUpForm countryPhoneData={countryPhoneData}/>
+      </div>
     );
   } else return null;
 };

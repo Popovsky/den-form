@@ -27,11 +27,6 @@ export const signUpItemsArray = [
     tag: 'select',
   },
   {
-    title: '',
-    type: 'tel',
-    tag: 'input',
-  },
-  {
     title: 'company name',
     type: 'text',
     tag: 'input',
@@ -45,11 +40,6 @@ export const signUpItemsArray = [
     title: 'company phone number',
     type: '',
     tag: 'select',
-  },
-  {
-    title: '',
-    type: 'tel',
-    tag: 'input',
   },
   {
     title: 'job title',
@@ -73,20 +63,19 @@ export const signUpItemsArray = [
   },
 ];
 
-export const signUpValidationSchema = yup.object().shape({
+export const signUpValidationSchema = (phoneMaskLength) => yup.object().shape({
   firstName: yup.string().required(),
   lastName: yup.string().required(),
   email: yup.string().email().required(),
-  sendMe: yup.boolean(),
-  personalPhoneNumber: yup.number().positive().integer().min(8).required(),
+  sendMeEmailInPlaneText: yup.boolean(),
+  personalPhoneNumber: yup.string().required(),
+  personalPhoneNumberField: yup.string().required(),
   companyName: yup.string().required(),
   companyAddress: yup.string().required(),
-  companyPhoneNumber: yup.number().positive().integer().min(8).required(),
+  companyPhoneNumber: yup.string().required(),
+  companyPhoneNumberField: yup.string().required(),
   jobTitle: yup.string().required(),
   password: yup.string().required().min(10),
-  passwordMin: yup.string().oneOf([yup.ref('password'), null]).min(10),
-  passwordLC: yup.string().oneOf([yup.ref('password'), null]).matches(/[a-z]/),
-  passwordUC: yup.string().oneOf([yup.ref('password'), null]).matches(/[A-Z]/),
   confirmPassword: yup.string().oneOf([yup.ref('password'), null]).required(),
-  accept: yup.boolean().oneOf([true]),
+  acceptPrivacyPolicy: yup.boolean().oneOf([true]),
 });
