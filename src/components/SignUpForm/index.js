@@ -33,13 +33,18 @@ const SignUpForm = ({countryPhoneData}) => {
         }, 1000);
       }}
     >
-      {({isSubmitting}) => (
+      {(values) => (
         <Form className={styles.form}>
           {signUpItemsArray.map((item, index) => {
-            return <SignUpFormItem key={index} fieldData={item} countryPhoneData={countryPhoneData}/>;
+            return <SignUpFormItem
+              key={index}
+              fieldData={item}
+              handleChange={values.handleChange}
+              values={values}
+              countryPhoneData={countryPhoneData}/>;
           })}
           <div className={styles.submitWrapper}>
-            <button className={styles.submit} type="submit" disabled={isSubmitting}>
+            <button className={styles.submit} type="submit" disabled={values.isSubmitting}>
               sign up
             </button>
           </div>
